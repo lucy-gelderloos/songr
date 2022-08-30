@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Albums</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,10 +10,18 @@
 </head>
 <body>
 <header>
-    <h1>Songr</h1>
+  <h1>Songr</h1>
 </header>
 <main>
-    <h2>Thanks for visiting!</h2>
+  <div class="displayAlbums">
+    <div class="album" th:each="album : ${albumArray}">
+      <p class="albumTitle" th:text="${album.title}" ></p>
+      <p class="albumArtist" th:text="${album.artist}" ></p>
+      <p th:text="${album.songCount} + ' songs'" ></p>
+      <p th:text="${album.length} + ' seconds long'" ></p>
+        <img class="albumArt" th:src="${album.imageUrl}" alt="'Cover of ' + ${album.title} + ' by ' + ${album.artist}"/>
+    </div>
+  </div>
 </main>
 <footer>
 

@@ -1,5 +1,6 @@
 package com.gelderloos.songr;
 
+import com.gelderloos.songr.models.Album;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

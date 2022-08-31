@@ -31,6 +31,23 @@ h2 {
     font-size: 3em;
 }
 
+form {
+    background-color: #f0ffba;
+    border: 2px solid #F20587;
+    border-radius: 0px 10px;
+    background-color: #f0ffba;
+    color:#274001;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+form * {
+    margin:4px;
+    display: block;
+}
+
 .displayAlbums {
     display: flex;
 }
@@ -60,3 +77,45 @@ img.albumArt {
 .albumArtist {
     font-size: 1.5em;
 }
+
+.pink {
+    background-color: #DE3EA1;
+    border: 1px solid #DE3EA1;
+    margin:4px;
+  }
+  
+  .pink:hover, .pink:active {
+    background-color: #b33683 !important;
+    border: 1px solid #b33683 !important;
+    box-shadow: 0 0 0 0.2rem #de3ea180 !important;
+  }
+  
+  .pink:focus {
+    background-color: #b33683 !important;
+    box-shadow: 0 0 0 0.2rem #de3ea180 !important;
+  }
+
+
+
+.albumForm {
+    border: 1px solid #DE3EA1;
+    margin:4px;
+    background-color: white;
+}
+
+.albumForm:hover, .albumForm:active, .albumForm:focus {
+    border: 1px solid #b33683 !important;
+    box-shadow: 0 0 0 0.2rem #de3ea180 !important;
+}
+
+#submitButton {
+    height:38px;
+    border: 1px solid #b33683 !important;
+    border-radius:5px;
+}
+
+#submitButton:hover, #submitButton:active, #submitButton:focus {
+    border: 1px solid #b33683 !important;
+    box-shadow: 0 0 0 0.2rem #de3ea180 !important;
+}
+

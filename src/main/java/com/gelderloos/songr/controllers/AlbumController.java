@@ -24,7 +24,7 @@ public class AlbumController {
     SongRepository songRepository;
 
     // https://www.baeldung.com/thymeleaf-arrays
-    @GetMapping("/")
+    @GetMapping(value = {"/", "/albums"})
     public String albumsGet(Model model) {
         List<Album> albumList = albumRepository.findAll();
         model.addAttribute("albumList",albumList);

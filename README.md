@@ -1,10 +1,10 @@
 # songr
 
-Start the app using `./gradlew runBoot` in the terminal. 
+Start the app using `./gradlew bootRun` in the terminal. 
 
 ## Routes
 
-- `/` - splash page
-- `/albums` - displays three albums
+- `/`, `/albums` - displays all albums in the site's database. Clicking "view details" on an album leads to a page displaying that album's details and song list. Includes a form to add more albums.
+- `/songs` - displays all songs in the site's database. Includes a form to add more songs.
 - `/hello` - displays a greeting message
-- `/<word>` - displays a page with the provided word (or phrase) capitalized
+- `/capitalize/<word>` - displays a page with the provided word (or phrase) capitalized

@@ -11,6 +11,7 @@ public class Album {
     private Long id;
     private String title = "";
     private String artist = "";
+    // TODO: songCount & length should be calculated from songs; length will ultimately be a string
     private Integer songCount = 0;
     private Integer length = 0;
     private String imageUrl = "";

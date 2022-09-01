@@ -18,13 +18,13 @@
   </nav>
 </header>
 <main>
-  <div class="displaySongs">
+  <div class="display">
     <table>
       <thead>
-      <td>Song Title</td>
-      <td>Album</td>
-      <td>Length</td>
-      <td>Track Number</td>
+      <td width="200px">Song Title</td>
+      <td width="200px">Album</td>
+      <td width="75px">Length</td>
+      <td width="75px">Track No.</td>
       </thead>
       <tr th:each="song : ${songList}">
         <td th:text="${song.title}"></td>
@@ -33,7 +33,7 @@
         <td th:text="${song.trackNumber}"></td>
       </tr>
     </table>
-  </div>
+    <hr />
   <form class="songForm" action="/add-song" method="post">
     <fieldset>
       <legend>Add a song</legend>
@@ -51,6 +51,8 @@
       <input id ="submitButton" type="submit" value="Add Song">
     </fieldset>
   </form>
+  </div>
+
 </main>
 </body>
 </html>

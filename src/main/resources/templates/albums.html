@@ -17,8 +17,8 @@
     </nav>
 </header>
 <main>
-  <div class="displayAlbums">
-      <div class="album">
+  <div class="albumGallery">
+      <div class="display">
           <form class="albumForm" action="/" method="post">
           <fieldset>
               <legend>Add an album</legend>
@@ -36,11 +36,13 @@
           </fieldset>
       </form>
       </div>
-      <div class="album" th:each="album : ${albumList}">
+      <div class="display album" th:each="album : ${albumList}">
       <p class="albumTitle" th:text="${album.title}" ></p>
       <p class="albumArtist" th:text="${album.artist}" ></p>
       <img class="albumArt" th:src="${album.imageUrl}" alt="'Cover of ' + ${album.title} + ' by ' + ${album.artist}"/>
-      <a class="detailLink" th:href="'/album/' + ${album.id}">View Details</a>
+      <div>
+          <a class="detailLink" th:href="'/album/' + ${album.id}">View Details</a>
+      </div>
     </div>
   </div>
 

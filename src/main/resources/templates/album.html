@@ -18,6 +18,7 @@
   </nav>
 </header>
 <main>
+  <div class="display">
   <div>
     <p class="albumTitle" th:text="${album.title}" ></p>
     <p class="albumArtist" th:text="${album.artist}" ></p>
@@ -25,9 +26,9 @@
   </div>
   <table>
     <thead>
-    <td>Track No.</td>
-    <td>Song Title</td>
-    <td>Length</td>
+    <td width="75px">Track No.</td>
+    <td width="250px">Song Title</td>
+    <td width="75px">Length</td>
     </thead>
     <tr th:each="song : ${album.songsOnAlbum}">
       <td th:text="${song.trackNumber}"></td>
@@ -35,6 +36,8 @@
       <td th:text="${song.length}"></td>
     </tr>
   </table>
+
+ </div>
 </main>
 </body>
 </html>

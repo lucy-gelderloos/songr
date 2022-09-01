@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class SongController {
@@ -23,18 +24,21 @@ public class SongController {
         @GetMapping("/songs")
         public String getAllSongs(Model model){
             List<Song> songList = songRepository.findAll();
-            // then send to thymeleaf through the model
+            List<Album> albumList = albumRepository.findAll();
             model.addAttribute("songList", songList);
+            model.addAttribute("albumList", albumList);
             return "songs";
         }
 
         @PostMapping("/add-song")
-        public RedirectView addSongToAlbum(String title, Integer length, Integer trackNumber, String albumTitle){
-            Album thisAlbum = albumRepository.findByTitle(albumTitle);
-            Song newSong = new Song(title,length,trackNumber,thisAlbum);
+        public RedirectView addSongToAlbum(String title, Integer length, Integer trackNumber, String albumId){
+            Long albumIdLong = Long.parseLong(albumId);
+            Optional<Album> albumOpt = albumRepository.findById(albumIdLong);
+            Album album = albumOpt.get();
+            Song newSong = new Song(title,length,trackNumber,album);
             songRepository.save(newSong);
 
-            return new RedirectView("/");
+            return new RedirectView("/songs");
         }
 
     }

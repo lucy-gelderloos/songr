@@ -20,13 +20,37 @@
 <main>
   <div class="displaySongs">
     <table>
+      <thead>
+      <td>Song Title</td>
+      <td>Album</td>
+      <td>Length</td>
+      <td>Track Number</td>
+      </thead>
       <tr th:each="song : ${songList}">
         <td th:text="${song.title}"></td>
+        <td th:text="${song.album.title}"></td>
         <td th:text="${song.length}"></td>
         <td th:text="${song.trackNumber}"></td>
       </tr>
     </table>
   </div>
+  <form class="songForm" action="/add-song" method="post">
+    <fieldset>
+      <legend>Add a song</legend>
+      <label>Song Title</label>
+      <input class="songForm" type="text" name="title"/>
+      <label>Song length (in seconds)</label>
+      <input class="songForm" type="number" name="length"/>
+      <label>Track Number</label>
+      <input class="songForm" type="number" name="trackNumber"/>
+      <label>Album</label>
+      <select name="albumId">
+        <option  th:each="album : ${albumList}" th:value="${album.id}" th:text="${album.title}" >
+        </option>
+      </select>
+      <input id ="submitButton" type="submit" value="Add Song">
+    </fieldset>
+  </form>
 </main>
 </body>
 </html>

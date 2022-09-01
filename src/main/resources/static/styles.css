@@ -53,6 +53,10 @@ form * {
     display: block;
 }
 
+table {
+    background-color:white;
+}
+
 .mainNavLink {
     color: #f0ffba;
     font-weight: bold;

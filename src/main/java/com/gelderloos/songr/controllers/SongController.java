@@ -13,10 +13,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
+@Controller
 public class SongController {
-    @Controller
-    public class EmployeeController {
-
         @Autowired
         SongRepository songRepository;
         @Autowired
@@ -40,4 +38,4 @@ public class SongController {
         }
 
     }
-}
+

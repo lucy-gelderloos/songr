@@ -13,7 +13,7 @@
   <h1>Songr</h1>
     <nav>
         <a class="mainNavLink" href="/songs">Songs</a>
-        <a class="mainNavLink" href="/albums">Albums</a>
+        <a class="mainNavLink" href="/">Albums</a>
     </nav>
 </header>
 <main>
@@ -36,12 +36,11 @@
           </fieldset>
       </form>
       </div>
-    <div class="album" th:each="album : ${albumList}">
+      <div class="album" th:each="album : ${albumList}">
       <p class="albumTitle" th:text="${album.title}" ></p>
       <p class="albumArtist" th:text="${album.artist}" ></p>
-      <p th:text="${album.songCount} + ' songs'" ></p>
-      <p th:text="${album.length} + ' seconds long'" ></p>
-        <img class="albumArt" th:src="${album.imageUrl}" alt="'Cover of ' + ${album.title} + ' by ' + ${album.artist}"/>
+      <img class="albumArt" th:src="${album.imageUrl}" alt="'Cover of ' + ${album.title} + ' by ' + ${album.artist}"/>
+      <a class="detailLink" th:href="'/album/' + ${album.id}">View Details</a>
     </div>
   </div>
 

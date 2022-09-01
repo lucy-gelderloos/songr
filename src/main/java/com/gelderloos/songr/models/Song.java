@@ -4,25 +4,24 @@ import javax.persistence.*;
 
 @Entity
 public class Song {
+
     private String title;
     private Integer length;
     private Integer trackNumber;
-
     @ManyToOne
-    Album thisAlbum;
+    private Album album;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
 
     protected Song() {
     }
-
     public Song(String title, Integer length, Integer trackNumber, Album album) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
-        this.thisAlbum = album;
+        this.album = album;
     }
 
     public String getTitle() {
@@ -50,11 +49,11 @@ public class Song {
     }
 
     public Album getAlbum() {
-        return thisAlbum;
+        return album;
     }
 
     public void setAlbum(Album album) {
-        this.thisAlbum = album;
+        this.album = album;
     }
 
     public long getId() {

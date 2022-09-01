@@ -8,15 +8,14 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
     private String title = "";
     private String artist = "";
     private Integer songCount = 0;
     private Integer length = 0;
     private String imageUrl = "";
-
-    @OneToMany(mappedBy = "thisAlbum")
-    List<Song> songsOnAlbum;
+    @OneToMany(mappedBy = "album")
+    private List<Song> songsOnAlbum;
     protected Album() {
     }
     public Album(String title, String artist, Integer songCount, Integer length, String imageUrl) {
@@ -69,5 +68,17 @@ public class Album {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setSongsOnAlbum(List<Song> songsOnAlbum) {
+        this.songsOnAlbum = songsOnAlbum;
     }
 }

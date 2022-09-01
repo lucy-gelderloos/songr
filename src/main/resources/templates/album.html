@@ -14,11 +14,15 @@
   <h1>Songr</h1>
   <nav>
     <a class="mainNavLink" href="/songs">Songs</a>
-    <a class="mainNavLink" href="/albums">Albums</a>
+    <a class="mainNavLink" href="/">Albums</a>
   </nav>
 </header>
-
-
-
+<main>
+  <div>
+    <p class="albumTitle" th:text="${album.title}" ></p>
+    <p class="albumArtist" th:text="${album.artist}" ></p>
+    <img class="albumArt" th:src="${album.imageUrl}" alt="'Cover of ' + ${album.title} + ' by ' + ${album.artist}"/>
+  </div>
+</main>
 </body>
 </html>

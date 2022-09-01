@@ -13,13 +13,13 @@ public class Album {
     long id;
     private String title = "";
     private String artist = "";
-    private int songCount = 0;
-    private int length = 0;
+    private Integer songCount = 0;
+    private Integer length = 0;
     private String imageUrl = "";
 
     protected Album() {
     }
-    public Album(String title, String artist, int songCount, int length, String imageUrl) {
+    public Album(String title, String artist, Integer songCount, Integer length, String imageUrl) {
         this.title = title;
         this.artist = artist;
         this.songCount = songCount;
@@ -49,7 +49,7 @@ public class Album {
         return songCount;
     }
 
-    public void setSongCount(int songCount) {
+    public void setSongCount(Integer songCount) {
         this.songCount = songCount;
     }
 
@@ -57,7 +57,7 @@ public class Album {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(Integer length) {
         this.length = length;
     }
 

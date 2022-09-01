@@ -31,7 +31,7 @@ public class AlbumController {
     // POST method to "/"
     // create an item in the DB
     @PostMapping("/")
-    public RedirectView createAlbum(String title, String artist, int songCount, int length, String imgUrl){
+    public RedirectView createAlbum(String title, String artist, Integer songCount, Integer length, String imgUrl){
         Album newAlbum = new Album(title, artist, songCount, length, imgUrl);
         albumRepository.save(newAlbum);
         return new RedirectView("/");

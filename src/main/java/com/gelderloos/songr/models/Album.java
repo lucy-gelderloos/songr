@@ -1,9 +1,7 @@
 package com.gelderloos.songr.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -17,6 +15,8 @@ public class Album {
     private Integer length = 0;
     private String imageUrl = "";
 
+    @OneToMany(mappedBy = "thisAlbum")
+    List<Song> songsOnAlbum;
     protected Album() {
     }
     public Album(String title, String artist, Integer songCount, Integer length, String imageUrl) {
@@ -27,7 +27,9 @@ public class Album {
         this.imageUrl = imageUrl;
     }
 
-
+    public List<Song> getSongsOnAlbum() {
+        return songsOnAlbum;
+    }
 
     public String getTitle() {
         return title;

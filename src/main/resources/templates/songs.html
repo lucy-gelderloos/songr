@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Songs</title>
+<!--  replace page title with song title-->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1>Songr</h1>
+  <nav>
+    <a class="mainNavLink" href="/songs">Songs</a>
+    <a class="mainNavLink" href="/">Albums</a>
+  </nav>
+</header>
+<main>
+  <div class="display">
+    <table>
+      <thead>
+      <td width="200px">Song Title</td>
+      <td width="200px">Album</td>
+      <td width="75px">Length</td>
+      <td width="75px">Track No.</td>
+      </thead>
+      <tr th:each="song : ${songList}">
+        <td th:text="${song.title}"></td>
+        <td th:text="${song.album.title}"></td>
+        <td th:text="${song.length}"></td>
+        <td th:text="${song.trackNumber}"></td>
+      </tr>
+    </table>
+    <hr />
+  <form class="songForm" action="/add-song" method="post">
+    <fieldset>
+      <legend>Add a song</legend>
+      <label>Song Title</label>
+      <input class="songForm" type="text" name="title"/>
+      <label>Song length (in seconds)</label>
+      <input class="songForm" type="number" name="length"/>
+      <label>Track Number</label>
+      <input class="songForm" type="number" name="trackNumber"/>
+      <label>Album</label>
+      <select name="albumId">
+        <option  th:each="album : ${albumList}" th:value="${album.id}" th:text="${album.title}" >
+        </option>
+      </select>
+      <input id ="submitButton" type="submit" value="Add Song">
+    </fieldset>
+  </form>
+  </div>
+
+</main>
+</body>
+</html>

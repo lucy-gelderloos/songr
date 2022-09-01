@@ -23,6 +23,18 @@
     <p class="albumArtist" th:text="${album.artist}" ></p>
     <img class="albumArt" th:src="${album.imageUrl}" alt="'Cover of ' + ${album.title} + ' by ' + ${album.artist}"/>
   </div>
+  <table>
+    <thead>
+    <td>Track No.</td>
+    <td>Song Title</td>
+    <td>Length</td>
+    </thead>
+    <tr th:each="song : ${album.songsOnAlbum}">
+      <td th:text="${song.trackNumber}"></td>
+      <td th:text="${song.title}"></td>
+      <td th:text="${song.length}"></td>
+    </tr>
+  </table>
 </main>
 </body>
 </html>

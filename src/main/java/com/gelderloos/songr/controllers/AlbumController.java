@@ -2,6 +2,7 @@ package com.gelderloos.songr.controllers;
 
 import com.gelderloos.songr.models.Album;
 import com.gelderloos.songr.repositories.AlbumRepository;
+import com.gelderloos.songr.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,9 @@ public class AlbumController {
 
     @Autowired
     AlbumRepository albumRepository;
+
+    @Autowired
+    SongRepository songRepository;
 
     // https://www.baeldung.com/thymeleaf-arrays
     @GetMapping("/")

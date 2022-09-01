@@ -11,9 +11,31 @@
 <body>
 <header>
   <h1>Songr</h1>
+    <nav>
+        <a class="mainNavLink" href="/songs">Songs</a>
+        <a class="mainNavLink" href="/albums">Albums</a>
+    </nav>
 </header>
 <main>
   <div class="displayAlbums">
+      <div class="album">
+          <form class="albumForm" action="/" method="post">
+          <fieldset>
+              <legend>Add an album</legend>
+              <label>Album Title</label>
+              <input class="albumForm" type="text" name="title"/>
+              <label>Album Artist</label>
+              <input class="albumForm" type="text" name="artist"/>
+              <label>Song Count</label>
+              <input class="albumForm" type="number" name="songCount"/>
+              <label>Album length (in seconds)</label>
+              <input class="albumForm" type="number" name="length"/>
+              <label>Album Art (please enter an image URL)</label>
+              <input class="albumForm" type="text" name="imgUrl"/>
+              <input id ="submitButton" type="submit" value="Add Album">
+          </fieldset>
+      </form>
+      </div>
     <div class="album" th:each="album : ${albumList}">
       <p class="albumTitle" th:text="${album.title}" ></p>
       <p class="albumArtist" th:text="${album.artist}" ></p>
@@ -22,22 +44,7 @@
         <img class="albumArt" th:src="${album.imageUrl}" alt="'Cover of ' + ${album.title} + ' by ' + ${album.artist}"/>
     </div>
   </div>
-    <form action="/" method="post">
-        <fieldset>
-            <legend>Add an album</legend>
-            <label>Album Title</label>
-            <input class="albumForm" type="text" name="title"/>
-            <label>Album Artist</label>
-            <input class="albumForm" type="text" name="artist"/>
-            <label>Song Count</label>
-            <input class="albumForm" type="number" name="songCount"/>
-            <label>Album length (in seconds)</label>
-            <input class="albumForm" type="number" name="length"/>
-            <label>Album Art (please enter an image URL)</label>
-            <input class="albumForm" type="text" name="imgUrl"/>
-            <input type="submit" value="Add Album">
-        </fieldset>
-    </form>
+
 </main>
 <footer>
 

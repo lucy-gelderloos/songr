@@ -24,16 +24,16 @@ public class SongController {
 
         @GetMapping("/songs")
         public String getAllSongs(Model model){
-            List<Song> songs = songRepository.findAll();
+            List<Song> songList = songRepository.findAll();
             // then send to thymeleaf through the model
-            model.addAttribute("songs", songs);
-            return "salmon-cookies/employees";
+            model.addAttribute("songList", songList);
+            return "songs";
         }
 
         @PostMapping("/add-song")
-        public RedirectView addSongToAlbum(String title, Integer length, Integer trackNumber, Album album){
-//            Album thisAlbum = albumRepository.findByName(albumName);
-            Song newSong = new Song(title,length,trackNumber,album);
+        public RedirectView addSongToAlbum(String title, Integer length, Integer trackNumber, String albumTitle){
+            Album thisAlbum = albumRepository.findByTitle(albumTitle);
+            Song newSong = new Song(title,length,trackNumber,thisAlbum);
             songRepository.save(newSong);
 
             return new RedirectView("/");
